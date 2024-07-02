@@ -1,6 +1,6 @@
 import { EventsListItem } from "./EventsListItem";
 
-import { IEvent } from "../../types";
+import type { IEvent } from "../../types";
 
 interface IEventsListProps {
   events: IEvent[];

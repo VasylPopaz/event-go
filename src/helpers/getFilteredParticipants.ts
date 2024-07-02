@@ -1,4 +1,4 @@
-import { IParticipant } from "../types";
+import type { IParticipant } from "../types";
 
 export const getFilteredParticipants = (
   participants: IParticipant[],

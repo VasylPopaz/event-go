@@ -2,16 +2,11 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
-import {
-  Filter,
-  ParticipantsList,
-  Loader,
-  Chart,
-} from "../components";
+import { Filter, ParticipantsList, Loader, Chart } from "../components";
 
-import { IEvent, IParticipant } from "../types";
-import { getEventById, getParticipantsByEventId } from "../api";
+import type { IEvent, IParticipant } from "../types";
 import { getFilteredParticipants } from "../helpers";
+import { getEventById, getParticipantsByEventId } from "../api";
 
 const EventParticipants = () => {
   const [participants, setParticipants] = useState<IParticipant[] | null>(null);

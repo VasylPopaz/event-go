@@ -6,8 +6,8 @@ import { toast } from "react-toastify";
 
 import { Loader } from "../../components";
 
-import { IParticipantExceptId } from "../../types";
 import { addParticipant } from "../../api";
+import type { IParticipantExceptId } from "../../types";
 import { ParticipantRegisterSchema } from "../../schemas";
 
 export const RegisterForm = () => {
@@ -130,7 +130,7 @@ export const RegisterForm = () => {
               </div>
             </div>
             <button
-              className="w-full px-[10px] py-[12px] border border-slate-700 rounded-[10px] bg-[#3c3d46] text-[#cdcdce] hover:scale-[1.05] hover:text-[#fbfbfc] hover:bg-[#1d232a] hover:border-transparent transition duration-300 disabled:cursor-not-allowed disabled:bg-[#f0f8ff] disabled:opacity-[0.7]"
+              className="w-full px-[10px] py-[12px] border border-slate-700 rounded-[10px] bg-[#3c3d46] text-[#cdcdce] hover:scale-[1.05] hover:text-[#fbfbfc] hover:bg-[#1d232a] hover:border-transparent focus-visible:scale-[1.05] focus-visible:text-[#fbfbfc] focus-visible:bg-[#1d232a] focus-visible:border-transparent transition duration-300 disabled:cursor-not-allowed disabled:bg-[#f0f8ff] disabled:opacity-[0.7]"
               type="submit"
               disabled={isLoading}
             >

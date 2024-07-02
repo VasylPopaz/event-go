@@ -1,6 +1,6 @@
 import { format } from "date-fns";
 
-import { IParticipant } from "../../types";
+import type { IParticipant } from "../../types";
 
 interface IParticipantListItemProps {
   participant: IParticipant;

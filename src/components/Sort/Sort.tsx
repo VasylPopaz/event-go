@@ -1,11 +1,15 @@
 import { useEffect, useRef, useState } from "react";
-import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
+import { MdKeyboardArrowUp } from "react-icons/md";
 
-import { statuses } from "../../constants";
+import { sortOptions } from "../../constants";
 
-export const Sort = ({ onChange }: { onChange: (option: string) => void }) => {
+interface ISortProps {
+  onChange: (label: string, value: string) => void;
+  sortLabel: string;
+}
+export const Sort = ({ sortLabel, onChange }: ISortProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [sortBy, setSortBy] = useState("None");
+  const [sortBy, setSortBy] = useState(sortLabel);
 
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -29,7 +33,7 @@ export const Sort = ({ onChange }: { onChange: (option: string) => void }) => {
   const handleOptionClick = (label: string, value: string) => {
     setIsOpen(false);
     setSortBy(label);
-    onChange(value);
+    onChange(label, value);
   };
 
   const handleClickOutside = (e: MouseEvent) => {
@@ -46,23 +50,26 @@ export const Sort = ({ onChange }: { onChange: (option: string) => void }) => {
       <p className="font-semibold text-[30px] text-left">Sort By:</p>
       <div className="relative inline-block w-[200px]" ref={dropdownRef}>
         <div
-          className="flex justify-between items-center py-[10px] px-[20px] bg-[#27303a] text-[white] rounded-[10px] cursor-pointer hover:text-bg-card-color hover:bg-[#bdbdbd] transition duration-300"
+          className="flex justify-between items-center py-[10px] px-[20px] bg-[#27303a] text-[white] rounded-[10px] cursor-pointer hover:text-bg-card-color hover:bg-[#bdbdbd] focus-visible:text-bg-card-color focus-visible:bg-[#bdbdbd] transition duration-300"
           onClick={handleToggle}
         >
           {sortBy}
-          {isOpen ? (
-            <MdKeyboardArrowUp size={20} onClick={handleIconClick} />
-          ) : (
-            <MdKeyboardArrowDown size={20} onClick={handleIconClick} />
-          )}
+
+          <MdKeyboardArrowUp
+            size={20}
+            onClick={handleIconClick}
+            className={`${
+              isOpen ? "rotate-180" : ""
+            } transition-transform duration-300`}
+          />
         </div>
         {isOpen && (
-          <ul className="py-[10px] px-[12px] bg-[#27303a] rounded-[10px] overflow-hidden w-[200px] block absolute z-[1]  text-[white] space-y-1 ">
-            {statuses.map(({ label, value }, index) => (
+          <ul className="py-[10px] px-[12px] bg-[#27303a] rounded-[10px] overflow-hidden w-[200px] block absolute top-[50px] left-0 z-[1]  text-[white] space-y-1 ">
+            {sortOptions.map(({ label, value }, index) => (
               <li
                 key={index}
                 style={label === sortBy ? { backgroundColor: "#6b7279" } : {}}
-                className="py-[4px] px-[8px] rounded-[10px] cursor-pointer hover:text-bg-card-color hover:bg-[#bdbdbd] transition duration-300"
+                className="py-[4px] px-[8px] rounded-[10px] cursor-pointer hover:text-bg-card-color hover:bg-[#bdbdbd] focus-visible:text-bg-card-color focus-visible:bg-[#bdbdbd] transition duration-300"
                 onClick={() => handleOptionClick(label, value)}
               >
                 {label}

@@ -39,4 +39,4 @@ EventGo is a web application built using React and Vite that allows users to reg
 - Improved UI/UX: Enhance the user interface and experience to make the application more intuitive and visually appealing.
 - EventGo provides a convenient platform for users to discover and participate in a variety of events while offering organizers the tools they need to manage and promote their events effectively.
 
-Here you can see back-end part of website: https://github.com/VasylPopaz/events-registration-backend
+Here you can see the back-end part of the website: https://github.com/VasylPopaz/event-go-backend

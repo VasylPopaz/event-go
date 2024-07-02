@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import { RegisterForm, Loader } from "../components";
 
 import { getEventById } from "../api";
-import { IEvent } from "../types";
+import type { IEvent } from "../types";
 
 const EventRegistration = () => {
   const [event, setEvent] = useState<IEvent | null>(null);

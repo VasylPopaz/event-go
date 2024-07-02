@@ -67,6 +67,9 @@ export default {
           "&:hover": {
             backgroundColor: "#3b3941",
           },
+          "&:focus-visible": {
+            backgroundColor: "#3b3941",
+          },
           "&.active": {
             backgroundColor: "black",
           },
@@ -87,6 +90,10 @@ export default {
             transform: "scaleX(0)",
           },
           "&:hover::after": {
+            transform: "scaleX(1)",
+            transformOrigin: "left",
+          },
+          "&:focus-visible::after": {
             transform: "scaleX(1)",
             transformOrigin: "left",
           },
@@ -146,7 +153,7 @@ export default {
             transformOrigin: "bottom",
             transform: "scaleX(1)",
           },
-          "&:focus::after": {
+          "&:focus-visible::after": {
             transformOrigin: "bottom",
             transform: "scaleX(1)",
           },

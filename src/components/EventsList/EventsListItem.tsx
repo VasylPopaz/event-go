@@ -1,7 +1,7 @@
 import { format } from "date-fns";
 import { Link } from "react-router-dom";
 
-import { IEvent } from "../../types";
+import type { IEvent } from "../../types";
 
 interface IEventListItemProps {
   event: IEvent;
